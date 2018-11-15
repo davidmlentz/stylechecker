@@ -14,8 +14,10 @@ do
 	read DONT
 	echo "OK. What do you want to replace it with?"
 	read DO
+	echo "OK. You can give a brief explanation here if you want, otherwise just click ENTER."
+	read BECAUSE
 	echo "OK. We've added it to the style guide and we'll replace \"$DONT\" with \"$DO\" from now on."
-	echo "$DONT|$DO" >> keywords.txt
+	echo "$DONT|$DO|$BECAUSE" >> keywords.txt
 	echo "Add another? (y/n)"
 	read go
 done

@@ -1,26 +1,12 @@
-Availability Zone|availability zone|I said so
-DataDog|Datadog|I said so
-DevOps|devops|I said so
-Devops|devops|I said so
-agent|Agent|I said so
-audodiscovery|Autodiscovery|I said so
-auto scaling|auto-scaling|I said so
-auto-discovery|Autodiscovery|I said so
-back end|backend|I said so
-boolean|Boolean|I said so
-catalogue|catalog|I said so
-cheat sheet|cheatsheet|I said so
-command-line|command line|I said so
-commandline|command line|I said so
-data are|data is|I said so
-data point|datapoint|I said so
-data set|dataset|I said so
-datadog|Datadog|I said so
-datastore|data store|I said so
-disaggregated|aggregated|I said so
-e-book|eBook|I said so
-e-mail|email|I said so
-e\.g\.|e\.g\.,|I said so
-end point|endpoint|I said so
-fail over|failover|I said so
-filesystem|file system|I said so
+agent|Agent|Capitalize the first letter in the name of the Agent, which is the open-source software that collects metrics from hosts and reports back to Datadog.
+datastore|data store|Two words, not one.
+disaggregated|aggregated|You probably don't want to use this word. Consider aggregated instead.
+filesystem|file system|Google trends shows that file system is the more-common usage.
+autodiscovery|Autodiscovery|The Autodiscovery feature in Datadog is capitalized but not hyphenated.
+auto-discovery|Autodiscovery|The Autodiscovery feature in Datadog is capitalized but not hyphenated.
+autoscaling|auto-scaling|"Auto Scaling" is an AWS product, but unless referring specifically to that product the term should be lowercased and hyphenated.
+Availability Zone|availability zone|No need to capitalize this term. "AZ" for short.
+back end|backend|In StatsD terminology, “backend" is one word.
+boolean|Boolean|Capitalize the first letter in "Boolean," a data type with two possible values (usually True/False), named for the 19th-century English mathematician George Boole.
+catalogue|catalog|Spelled the Amurrican way.
+cheat sheet|cheatsheet|It's a bit of a historical accident that we use a single word for this. But now that we've done it, might as well be consistent.

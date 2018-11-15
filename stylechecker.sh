@@ -35,8 +35,10 @@ while read -r line;
 		because=$(echo $line | sed 's/^\(.*\)\|\(.*\)\|\(.*\)$/\3/')
 echo "### $dont" >> keywords.md
 echo "Instead, use \`$do\`." >> keywords.md
-echo "" >> keywords.md
-echo "Because $because" >> keywords.md
+if [[ ! -z "$because" ]]; then
+	echo "" >> keywords.md
+	echo "$because" >> keywords.md
+fi
 
 		# Each time a DONT appears, bold it and italicize it
 		cat outfile.md | sed "s/$dont/==[$dont](https:\/\/github.com\/davidmlentz\/stylechecker\/blob\/master\/keywords.md#$dont)==/g" > outfile2.md
