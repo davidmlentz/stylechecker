@@ -1,33 +1,16 @@
----
-authors:
-- email: david.lentz@datadoghq.com
-  name: David M. Lentz
-  image: lentz.jpg
-blog/category: 
-- series collection
-blog/tag:
-- activemq
-- metrics
-- JMX
-- message broker
-date: 2018-11-12
-description: 
-draft: true
-image: active-mq_longform_series_181009_Part_2.png
-preview_image: active-mq_longform_series_181009_Part_2.png
-slug: collecting-activemq-metrics
-technology: activemq
-title: Collecting ActiveMQ Metrics
-series: activemq-monitoring
-tcp:
-- title: "eBook: Monitoring In The Cloud"
-  desc: "Build a framework for monitoring dynamic infrastructure and applications."
-  cta: "Download to learn more"
-  link: "https://www.datadoghq.com/resources/monitoring-in-the-cloud-ebook/?utm_source=Content&utm_medium=eBook&utm_campaign=BlogCTA-MonitoringInTheCloud"
-  img: Thumbnail-MonitoringInTheCloud.png
----
-
 In [Part 1 of this series][part-1], we looked at how ActiveMQ works, and the key metrics you can monitor to ensure proper performance of your messaging infrastructure. In this post, we'll show you some of the tools that you can use to collect ActiveMQ metrics. This includes tools that ship with ActiveMQ, and some other tools that make use of Java Management Extensions (JMX) to monitor ActiveMQ brokers and destinations.
+
+agent
+
+backend
+
+back end
+
+fail over
+
+failover
+
+[comment]: # (This is a comment, it will not be included)
 
 |Tool|Description|Metrics it collects|
 |---|---|---|

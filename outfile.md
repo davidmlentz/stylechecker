@@ -1,33 +1,19 @@
----
-authors:
-- email: david.lentz@**_datadog_**hq.com
-  name: David M. Lentz
-  image: lentz.jpg
-blog/category: 
-- series collection
-blog/tag:
-- activemq
-- metrics
-- JMX
-- message broker
-date: 2018-11-12
-description: 
-draft: true
-image: active-mq_longform_series_181009_Part_2.png
-preview_image: active-mq_longform_series_181009_Part_2.png
-slug: collecting-activemq-metrics
-technology: activemq
-title: Collecting ActiveMQ Metrics
-series: activemq-monitoring
-tcp:
-- title: "eBook: Monitoring In The Cloud"
-  desc: "Build a framework for monitoring dynamic infrastructure and applications."
-  cta: "Download to learn more"
-  link: "https://www.**_datadog_**hq.com/resources/monitoring-in-the-cloud-ebook/?utm_source=Content&utm_medium=eBook&utm_campaign=BlogCTA-MonitoringInTheCloud"
-  img: Thumbnail-MonitoringInTheCloud.png
----
-
 In [Part 1 of this series][part-1], we looked at how ActiveMQ works, and the key metrics you can monitor to ensure proper performance of your messaging infrastructure. In this post, we'll show you some of the tools that you can use to collect ActiveMQ metrics. This includes tools that ship with ActiveMQ, and some other tools that make use of Java Management Extensions (JMX) to monitor ActiveMQ brokers and destinations.
+
+==agent==n
+
+backend
+
+==back end==n
+
+==fail over==n
+
+failover
+
+[comment]: # (This is a comment, it will not be included)
+
+[local link!](./temp.md#catalog)
+
 
 |Tool|Description|Metrics it collects|
 |---|---|---|
@@ -143,19 +129,19 @@ Like the Web Console, JConsole is a graphical user interface. Unlike the Web Con
 
 {{< img src="jconsole3.png" wide="true" alt="JConsole's overview tab shows graphs of CPU usage, heap memory usage, and classes loaded." >}}
 
-We've shown how to use JConsole to remotely view ActiveMQ metrics using JMX. But JConsole doesn't provid**_e.g._**aphs of your ActiveMQ metrics, and it requires you to open a port to allow traffic specifically for JMX requests. In the next section, we'll look at Hawtio, a JMX monitoring tool that works over HTTP and helps you visualize ActiveMQ metrics with timeseries graphs.
+We've shown how to use JConsole to remotely view ActiveMQ metrics using JMX. But JConsole doesn't provid==e.g.==naphs of your ActiveMQ metrics, and it requires you to open a port to allow traffic specifically for JMX requests. In the next section, we'll look at Hawtio, a JMX monitoring tool that works over HTTP and helps you visualize ActiveMQ metrics with timeseries graphs.
 
 ## Hawtio
 [Hawtio][hawtio] is an open source, GUI-based tool that you can use to monitor Java applications that expose metrics via JMX. Hawtio has built-in support for ActiveMQ, and it works as a web app inside your ActiveMQ installation, similar to the Web Console. Hawtio displays broker and destination metrics as numerical data, and as timeseries graphs, which Hawtio calls **Charts**. 
 
 {{< img src="hawtio1.png" caption="One of the views in Hawtio shows queue metrics as a timeseries graph." wide="true" alt="This Hawtio screenshot shows ten different ActiveMQ metrics visualized as timeseries graphs in one view." >}}
 
-Hawtio uses [horizon graphs][horizon-graphs] to visualize metrics. This format uses color to maintain a consistent h**_e.g._**t even if the maximum y-axis value changes over time. The darkest regions represent the highest values. A new value that would fall above th**_e.g._**aph's preexisting upper limit is represented in a darker shade and is plotted within th**_e.g._**aph's existing h**_e.g._**t.
+Hawtio uses [horizon graphs][horizon-graphs] to visualize metrics. This format uses color to maintain a consistent h==e.g.==nt even if the maximum y-axis value changes over time. The darkest regions represent the highest values. A new value that would fall above th==e.g.==naph's preexisting upper limit is represented in a darker shade and is plotted within th==e.g.==naph's existing h==e.g.==nt.
 
-{{< img src="hawtio2.png" wide="true" caption="Instead of increasing the h**_e.g._**t of th**_e.g._**aph as values rise, a horizon graph applies darker shades to higher values, allowing it to plot a dynamic range of y-axis values in the same vertical space." alt="A simple horizon graph shows higher values in darker colors." >}}
+{{< img src="hawtio2.png" wide="true" caption="Instead of increasing the h==e.g.==nt of th==e.g.==naph as values rise, a horizon graph applies darker shades to higher values, allowing it to plot a dynamic range of y-axis values in the same vertical space." alt="A simple horizon graph shows higher values in darker colors." >}}
 
 ### Advantages of using Hawtio
-The timeseries graphs available in Hawtio's **Charts** tab differentiate it from JConsole and the ActiveMQ Web Console. Thes**_e.g._**aphs allow you to identify trends in the performance of your messaging infrastructure, and can be helpful for troubleshooting issues.
+The timeseries graphs available in Hawtio's **Charts** tab differentiate it from JConsole and the ActiveMQ Web Console. Thes==e.g.==naphs allow you to identify trends in the performance of your messaging infrastructure, and can be helpful for troubleshooting issues.
 
 Hawtio works over the web, which gives it some advantages over tools like JConsole and the Web Console. The Hawtio frontend makes HTTP calls to a Jolokia server that's included in your ActiveMQ installation. Jolokia's role is to serve JMX data via REST endpoints. The Hawtio UI sends requests and receives JSON responses over HTTP, which could make it easier to use in your environment, since HTTP ports are likely already in use and not blocked by a firewall. 
 
@@ -224,7 +210,7 @@ Hawtio, JConsole, and the ActiveMQ Web Console are GUI-based tools that don't al
 Next, we'll look at the statistics plugin, which allows you to collect metrics by sending and receiving JMS messages.
 
 ## Statistics plugin
-As of version 5.3+, ActiveMQ includes a [statistics plugin][activemq-statistics-plugin] that uses its native messaging functionality to send metrics. Th**_e.g._**teway for communicating with the statistics plugin is a set of destinations created automatically by ActiveMQ. When you send an empty message to one of the statistics destinations, ActiveMQ will respond by sending broker or destination metrics in a JMS message to a destination you specify.
+As of version 5.3+, ActiveMQ includes a [statistics plugin][activemq-statistics-plugin] that uses its native messaging functionality to send metrics. Th==e.g.==nteway for communicating with the statistics plugin is a set of destinations created automatically by ActiveMQ. When you send an empty message to one of the statistics destinations, ActiveMQ will respond by sending broker or destination metrics in a JMS message to a destination you specify.
 
 For example, to generate a JMS message containing broker metrics, you can send an empty message to the broker statistics destination (named `ActiveMQ.Statistics.Broker`). To fetch metrics for a destination named `MY_DESTINATION`, send an empty message to `ActiveMQ.Statistics.Destination.MY_DESTINATION`. You can also use wildcards in the names of statistics destinations: to generate statistics messages for all destinations, send a message to `ActiveMQ.Statistics.Destination.>`. See the [ActiveMQ documentation][activemq-wildcards] for more information about wildcards.
 
@@ -290,7 +276,7 @@ ActiveMQ works in conjunction with other applications (such as producers and con
 Datadog allows you to collect, visualize, and alert on data from more than {{< translate key="integration_count" >}} technologies across your messaging infrastructure. Coming up in [part 3][part-3] of this series, we'll look at how Datadog can help you monitor all the pieces of your ActiveMQ setup.
 
 [activemq-cli-linux]: http://activemq.apache.org/unix-shell-script.html
-[activemq-cli-windows]: http://activemq.apache.org/activemq-**_command-line_**-tools-reference.html
+[activemq-cli-windows]: http://activemq.apache.org/activemq-==command-line==n-tools-reference.html
 [activemq-env]: https://github.com/apache/activemq/blob/master/assembly/src/release/bin/env
 [activemq-jmx]: http://activemq.apache.org/jmx.html
 [activemq-networks-of-brokers]: https://activemq.apache.org/networks-of-brokers.html
@@ -304,7 +290,7 @@ Datadog allows you to collect, visualize, and alert on data from more than {{< t
 [hawtio]: http://hawt.io/
 [hawtio-docs]: http://hawt.io/docs/get-started/
 [horizon-graphs]: http://www.stonesc.com/Vis08_Workshop/DVD/Reijner_submission.pdf
-[java-monitoring-apm]: https://www.**_datadog_**hq.com/blog/java-monitoring-apm/
+[java-monitoring-apm]: https://www.==datadog==nhq.com/blog/java-monitoring-apm/
 [jetty]: https://www.eclipse.org/jetty/
 [oracle-jconsole]: https://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html
 [oracle-jdk]: https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html
@@ -316,8 +302,8 @@ Datadog allows you to collect, visualize, and alert on data from more than {{< t
 [part-1-what-is-activemq]: /blog/activemq-key-metrics/#what-is-activemq
 [part-3]: TK
 
-**_agent_**
+==agent==n
 backend
-**_back end_**
-**_fail over_**
+==back end==n
+==fail over==n
 failover

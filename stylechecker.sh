@@ -29,7 +29,7 @@ while read -r line;
 		do=$(echo $line | sed 's/^\(.*\)\|\(.*\)$/\2/')
 
 		# Each time a DONT appears, bold it and italicize it
-		cat outfile.md | sed "s/$dont/**\_$dont\_**/g" > outfile2.md
+		cat outfile.md | sed "s/$dont/==$dont==/g" > outfile2.md
 		cp outfile2.md outfile.md
 
 		# If the word we're looking for appeared, add it to the 
