@@ -21,15 +21,25 @@ curl -q -o outfile.md $URL
 # and should be reviewed
 returnstring="OK I've found occurrences of the following terms you should review for consistency with our style guide:"
 
+# Before we start looping over our keywords data source (keywords.txt),
+# (re-)create keywords.md which is a prettier version. We'll add lines 
+# as we loop over keywords.txt
+echo "Words and phrases" > keywords.md
+
 # Loop over keywords.txt
 while read -r line;
 	do 
 		# Split each keywords line into DONT and DO, separated by |
-		dont=$(echo $line | sed 's/^\(.*\)\|\(.*\)$/\1/')
-		do=$(echo $line | sed 's/^\(.*\)\|\(.*\)$/\2/')
+		dont=$(echo $line | sed 's/^\(.*\)\|\(.*\)\|\(.*\)$/\1/')
+		do=$(echo $line | sed 's/^\(.*\)\|\(.*\)\|\(.*\)$/\2/')
+		because=$(echo $line | sed 's/^\(.*\)\|\(.*\)\|\(.*\)$/\3/')
+echo "### $dont" >> keywords.md
+echo "Instead, use \`$do\`." >> keywords.md
+echo "" >> keywords.md
+echo "Because $because" >> keywords.md
 
 		# Each time a DONT appears, bold it and italicize it
-		cat outfile.md | sed "s/$dont/==[$dont](https:\/\/github.com\/davidmlentz\/stylechecker\/wiki\/Words-and-phrases#$dont)==/g" > outfile2.md
+		cat outfile.md | sed "s/$dont/==[$dont](https:\/\/github.com\/davidmlentz\/stylechecker\/blob\/master\/keywords.md#$dont)==/g" > outfile2.md
 		cp outfile2.md outfile.md
 
 		# If the word we're looking for appeared, add it to the 

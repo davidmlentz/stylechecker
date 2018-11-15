@@ -1,26 +1,26 @@
-Availability Zone|availability zone
-DataDog|Datadog
-DevOps|devops
-Devops|devops
-agent|Agent
-audodiscovery|Autodiscovery
-auto scaling|auto-scaling
-auto-discovery|Autodiscovery
-back end|backend
-boolean|Boolean
-catalogue|catalog
-cheat sheet|cheatsheet
-command-line|command line
-commandline|command line
-data are|data is
-data point|datapoint
-data set|dataset
-datadog|Datadog
-datastore|data store
-disaggregated|aggregated
-e-book|eBook
-e-mail|email
-e.g.|e.g.,
-end point|endpoint
-fail over|failover
-filesystem|file system
+Availability Zone|availability zone|I said so
+DataDog|Datadog|I said so
+DevOps|devops|I said so
+Devops|devops|I said so
+agent|Agent|I said so
+audodiscovery|Autodiscovery|I said so
+auto scaling|auto-scaling|I said so
+auto-discovery|Autodiscovery|I said so
+back end|backend|I said so
+boolean|Boolean|I said so
+catalogue|catalog|I said so
+cheat sheet|cheatsheet|I said so
+command-line|command line|I said so
+commandline|command line|I said so
+data are|data is|I said so
+data point|datapoint|I said so
+data set|dataset|I said so
+datadog|Datadog|I said so
+datastore|data store|I said so
+disaggregated|aggregated|I said so
+e-book|eBook|I said so
+e-mail|email|I said so
+e\.g\.|e\.g\.,|I said so
+end point|endpoint|I said so
+fail over|failover|I said so
+filesystem|file system|I said so
